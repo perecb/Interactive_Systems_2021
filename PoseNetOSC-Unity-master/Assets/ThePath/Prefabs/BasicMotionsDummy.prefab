@@ -1032,6 +1032,8 @@ GameObject:
   - component: {fileID: 5862223120170319304}
   - component: {fileID: 5857534051109138330}
   - component: {fileID: 5857534051109138329}
+  - component: {fileID: 1260598484926642}
+  - component: {fileID: 1260598484926643}
   m_Layer: 0
   m_Name: BasicMotionsDummy
   m_TagString: Untagged
@@ -1085,6 +1087,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 2, z: 0.5}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &1260598484926642
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858724269321124498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 5917c0e93d180a842b61d1ebc62a195c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 5cc2d63091083f745bd626ced023c071, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1260598484926643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858724269321124498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47e4cf4037f4704f883615d41be8a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 3
+  rotateSpeed: 3
 --- !u!1 &5858725398714123878
 GameObject:
   m_ObjectHideFlags: 0
