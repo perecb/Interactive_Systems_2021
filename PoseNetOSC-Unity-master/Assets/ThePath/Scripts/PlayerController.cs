@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+//[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
@@ -18,39 +18,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //UpdateMovement();
-        CharacterController controller = GetComponent<CharacterController>();
-        // Rotate around y - axis
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
-        // Move forward / backward
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        float curSpeed = movementSpeed * Input.GetAxis("Vertical");
-        if (curSpeed > 0)
-        {
-            animator.SetInteger("walk", 1);
-        }
-        else
-        {
-            animator.SetInteger("walk", 0);
-        }
-        if (curSpeed >= 0)
-        {
-            controller.SimpleMove(forward * curSpeed);
-        }
+        UpdateMovement();
     }
 
 
-    /*private void UpdateMovement()
+    private void UpdateMovement()
     {
-        float verticalInput = Input.GetAxisRaw("Vertical"); // 1
-
-        if (verticalInput < 0) // 1
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        if (verticalInput < 0)
         {
-            transform.Translate(transform.right * -movementSpeed * Time.deltaTime);
-        }
-        else if (verticalInput > 0) // 2
-        {
+            animator.SetBool("walk", true);
             transform.Translate(transform.right * movementSpeed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0,-90,0);
         }
-    }*/
+        else if (verticalInput > 0)
+        {
+            animator.SetBool("walk", true);
+            transform.Translate(transform.right * -movementSpeed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(0, 90, 0);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
+        }
+    }
 }
