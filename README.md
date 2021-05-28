@@ -9,16 +9,25 @@ Es importante tener instalado el mediapipe unity el cual encontraras informacion
 Tambien necesitas tener python con la version 3.6, 3.7 o 3.8: https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe
 
 Para instalar el mediapipe sigue estos pasos desde la terminal (cmd):
+
     Desde la línea de comandos, creamos undirectorio
-      > mkdir mediapipeunity
+	
+        > mkdir mediapipeunity
+		
     Ejecutamos un comando para crear un ambiente virtual de python
+	
       > python -m venv mp_env
+	  
     Activamos el ambiente virtual - se verá (mp_env)
+	
       > .\mp_env\Scripts\activate
+	  
     Instalamos mediapipe
+	
       >pip install mediapipe
       
-Ahora se debe introducir el archivo de nuestro repositorio hands.py en el directorio que has creado y ejecutarlo con el siguiente comando.
+Ahora se debe introducir el archivo de nuestro repositorio hands.py en el directorio que has creado y ejecutarlo con el siguiente comando:
+
       > python hands.py
      
 Debes dejar la ventana abierta y ejecutar el programa en unity.
