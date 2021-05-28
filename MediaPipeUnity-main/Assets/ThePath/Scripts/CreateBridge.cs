@@ -16,6 +16,8 @@ public class CreateBridge : MonoBehaviour
     float Angulo_Radianes;
     float Angulo_Grados;
     float cont;
+    float activatio_Rate = 1;
+    float next_Activation = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -70,13 +72,15 @@ public class CreateBridge : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (cont == 0)
+        if (cont == 0 && Time.time > next_Activation)
         {
             active_bridge = true;
+            next_Activation = Time.time + activatio_Rate;
         }
-        if (cont == 1)
+        if (cont == 1 && Time.time > next_Activation)
         {
             active_bridge = false;
+            next_Activation = Time.time + activatio_Rate;
         }
     }
 }
