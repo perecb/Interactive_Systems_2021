@@ -108,9 +108,6 @@ public class MediapipeReceiver : MonoBehaviour
 
 	private void Update()
 	{
-		//Vector3 PosDedo1 = new Vector3(((Dedo1.x * 2) - 1) * multiplier, ((Dedo1.y * 2) + 1) * multiplier, -5);
-		//Vector3 PosDedo2 = new Vector3(((Dedo2.x * 2) - 1) * multiplier, ((Dedo2.y * 2) + 1) * multiplier, -5);
-
 		//Assign the positions received in the socket to the objects
 		Dedo1GO.transform.position = new Vector3(((Dedo1.x * 2) - 1) * multiplier, ((Dedo1.y * 2) + 1) * multiplier, -5);
 		Dedo2GO.transform.position = new Vector3(((Dedo2.x * 2) - 1) * multiplier, ((Dedo2.y * 2) + 1) * multiplier, -5);
