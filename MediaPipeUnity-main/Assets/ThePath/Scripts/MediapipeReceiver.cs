@@ -10,7 +10,7 @@ using System.Globalization;
 
 public class MediapipeReceiver : MonoBehaviour
 {
-	//
+
 	public float multiplier; 
 
 	//Thread to receive by UDP from the Phone 
@@ -26,9 +26,8 @@ public class MediapipeReceiver : MonoBehaviour
 
 	// Hand landmarks positions
 	// https://google.github.io/mediapipe/solutions/hands.html
-	Vector3 Dedo1; //0
-	Vector3 Dedo2; //1
-
+	Vector2 Dedo1; //0
+	Vector2 Dedo2; //1
 
 	//Hand landmarks representations as GameObjects
 	public GameObject Dedo1GO;
@@ -73,13 +72,11 @@ public class MediapipeReceiver : MonoBehaviour
 					string message = ExtractString(packet, 0, packet.Length);
 					string[] messageSplit = message.Split(new Char[] { ',' });
 
-					Dedo1 = new Vector3(float.Parse(messageSplit[0].ToString()),
-										float.Parse(messageSplit[1].ToString())*-1, //Reverse the Y axis
-										float.Parse(messageSplit[2].ToString()));
+					Dedo1 = new Vector2(float.Parse(messageSplit[0].ToString()),
+										float.Parse(messageSplit[1].ToString()) * -1); //Reverse the Y axis
 
-					Dedo2 = new Vector3( float.Parse(messageSplit[4].ToString()),
-											float.Parse(messageSplit[4+1].ToString()) * -1, //Reverse the Y axis
-											float.Parse(messageSplit[4+2].ToString()));
+					Dedo2 = new Vector2(float.Parse(messageSplit[2].ToString()),
+											float.Parse(messageSplit[3].ToString()) * -1); //Reverse the Y axis
 
 					//Debug.Log("Receiver: "+message);
 				}
@@ -111,9 +108,12 @@ public class MediapipeReceiver : MonoBehaviour
 
 	private void Update()
 	{
+		Vector2 PosDedo1 = new Vector2((Dedo1.x * 2) - 1, (Dedo1.y * 2) + 1);
+		Vector2 PosDedo2 = new Vector2((Dedo2.x * 2) - 1, (Dedo2.y * 2) + 1);
+
 		//Assign the positions received in the socket to the objects
-		Dedo1GO.transform.position = Dedo1 * multiplier;
-		Dedo2GO.transform.position = Dedo2 * multiplier;
+		Dedo1GO.transform.position = PosDedo1 * multiplier;
+		Dedo2GO.transform.position = PosDedo2 * multiplier;
 	}
 
 	private void OnDestroy()
