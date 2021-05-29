@@ -9,8 +9,8 @@ public class CreateBridge : MonoBehaviour
 
     public bool active_bridge = false;
 
-    Vector3 PosicionDedo1;
-    Vector3 PosicionDedo2;
+    Vector3 dedoDerechoPos;
+    Vector3 dedoIzquierdoPos;
     Vector3 Centro;
 
     float Angulo_Radianes;
@@ -56,13 +56,21 @@ public class CreateBridge : MonoBehaviour
 
     void Calc_PR()
     {
-        PosicionDedo1 = transform.position;
-        PosicionDedo2 = Dedo2.transform.position;
+        if(transform.position.x < Dedo2.transform.position.x)
+        {
+            dedoIzquierdoPos = transform.position;
+            dedoDerechoPos = Dedo2.transform.position;
+        }
+        else
+        {
+            dedoDerechoPos = transform.position;
+            dedoIzquierdoPos = Dedo2.transform.position;
+        }
 
-        Centro = (PosicionDedo1 + PosicionDedo2) / 2;
+        Centro = (dedoIzquierdoPos + dedoDerechoPos) / 2;
 
-        float hipotenusa = Mathf.Sqrt(Mathf.Pow(PosicionDedo2.x - PosicionDedo1.x, 2) + Mathf.Pow(PosicionDedo2.y - PosicionDedo1.y, 2));
-        Angulo_Radianes = Mathf.Asin((PosicionDedo2.y - PosicionDedo1.y) / hipotenusa);
+        float hipotenusa = Mathf.Sqrt(Mathf.Pow(dedoDerechoPos.x - dedoIzquierdoPos.x, 2) + Mathf.Pow(dedoDerechoPos.y - dedoIzquierdoPos.y, 2));
+        Angulo_Radianes = Mathf.Asin((dedoDerechoPos.y - dedoIzquierdoPos.y) / hipotenusa);
         Angulo_Grados = Angulo_Radianes * Mathf.Rad2Deg;
 
         Cubo.transform.rotation = Quaternion.Euler(0, 0, Angulo_Grados);

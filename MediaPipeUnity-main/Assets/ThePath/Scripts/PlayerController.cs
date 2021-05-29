@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject startPlatform;
     public GameObject endPlatform;
+    public string nextScene;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private void tpNextLvl()
     {
-        SceneManager.LoadScene("Lvl 2");
+        SceneManager.LoadScene(nextScene);
     }
 
     private void UpdateMovement()

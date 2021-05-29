@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 256913308898615723, guid: 52e754bcecb116c45b27a9d11cc58682,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.3162
+      value: 8.2693
       objectReference: {fileID: 0}
     - target: {fileID: 256913308898615723, guid: 52e754bcecb116c45b27a9d11cc58682,
         type: 3}
@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 256913308898615723, guid: 52e754bcecb116c45b27a9d11cc58682,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.503694
+      value: 8.597143
       objectReference: {fileID: 0}
     - target: {fileID: 256913308898615723, guid: 52e754bcecb116c45b27a9d11cc58682,
         type: 3}
@@ -1595,7 +1595,7 @@ PrefabInstance:
     - target: {fileID: 4323921141749100085, guid: b5d60187681fb544e8a3349e1cf934ac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.0968695
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4323921141749100085, guid: b5d60187681fb544e8a3349e1cf934ac,
         type: 3}
@@ -1669,6 +1669,10 @@ PrefabInstance:
       propertyPath: endPlatform
       value: 
       objectReference: {fileID: 1416101710}
+    - target: {fileID: 1260598484926643, guid: 5419e980f13f9fb408ebf849c1c555d0, type: 3}
+      propertyPath: nextScene
+      value: Lvl 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5858724269321124498, guid: 5419e980f13f9fb408ebf849c1c555d0,
         type: 3}
       propertyPath: m_Name
