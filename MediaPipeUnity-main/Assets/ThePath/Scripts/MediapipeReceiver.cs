@@ -28,12 +28,12 @@ public class MediapipeReceiver : MonoBehaviour
 	// https://google.github.io/mediapipe/solutions/hands.html
 	Vector2 Dedo1; //0
 	Vector2 Dedo2; //1
-	Vector2 Nose; //1
+	float Nose; //1
 
 	//Hand landmarks representations as GameObjects
 	public GameObject Dedo1GO;
 	public GameObject Dedo2GO;
-	public GameObject NoseGO;
+	public GameObject PlayerGO;
 
 	private void Start()
 	{
@@ -80,8 +80,7 @@ public class MediapipeReceiver : MonoBehaviour
 					Dedo2 = new Vector2(float.Parse(messageSplit[2].ToString()),
 											float.Parse(messageSplit[3].ToString()) * -1); //Reverse the Y axis
 
-					Nose = new Vector2(float.Parse(messageSplit[4].ToString()),
-											float.Parse(messageSplit[5].ToString()) * -1); //Reverse the Y axis
+					Nose = float.Parse(messageSplit[4].ToString());
 
 					//Debug.Log("Receiver: "+message);
 				}
@@ -116,7 +115,15 @@ public class MediapipeReceiver : MonoBehaviour
 		//Assign the positions received in the socket to the objects
 		Dedo1GO.transform.position = new Vector3(((Dedo1.x * 2) - 1) * multiplier, ((Dedo1.y * 2) + 1) * multiplier, -5);
 		Dedo2GO.transform.position = new Vector3(((Dedo2.x * 2) - 1) * multiplier, ((Dedo2.y * 2) + 1) * multiplier, -5);
-		NoseGO.transform.position = new Vector3(((Nose.x * 2) - 1) * multiplier, ((Nose.y * 2) + 1) * multiplier, -5);
+
+		if(Nose < 0.4 && Nose != 0.0)
+        {
+			PlayerGO.transform.rotation = Quaternion.Euler(0, -90, 0);
+		}
+		else if (Nose > 0.6 && Nose != 0.0)
+        {
+			PlayerGO.transform.rotation = Quaternion.Euler(0, 90, 0);
+		}
 	}
 
 	private void OnDestroy()

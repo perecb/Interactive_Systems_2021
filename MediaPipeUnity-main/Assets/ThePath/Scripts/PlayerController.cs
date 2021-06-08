@@ -46,26 +46,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         float verticalInput = Input.GetAxisRaw("Vertical");
-
         animator.SetBool("walk", true);
-        transform.Translate(transform.right * -movementSpeed * Time.deltaTime);
-        transform.eulerAngles = new Vector3(0, 90, 0);
 
-        if (verticalInput < 0)
+        if (transform.rotation.y < 0)
         {
-            animator.SetBool("walk", true);
             transform.Translate(transform.right * movementSpeed * Time.deltaTime);
-            transform.eulerAngles = new Vector3(0,-90,0);
         }
-        else if (verticalInput > 0)
+        else if (transform.rotation.y > 0)
         {
-            animator.SetBool("walk", true);
             transform.Translate(transform.right * -movementSpeed * Time.deltaTime);
-            transform.eulerAngles = new Vector3(0, 90, 0);
-        }
-        else
-        {
-            //animator.SetBool("walk", false);
         }
     }
 }

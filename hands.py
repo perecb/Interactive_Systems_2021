@@ -36,16 +36,22 @@ while cap.isOpened():
   detectionsHands = resultsHands.multi_hand_landmarks
   detectionsPose = resultsPose.pose_landmarks
 
+  numHands = 0
+
   if detectionsHands is not None and detectionsPose is not None:
+
       msg = ""
+
       for detection in detectionsHands:
+          numHands = numHands + 1
           msg+=str(round(detection.landmark[8].x,3))+','+str(round(detection.landmark[8].y,3))+','
 
-      msg+=str(round(detectionsPose.landmark[0].x,3))+','+str(round(detectionsPose.landmark[0].y,3))+','
+      msg+=str(round(detectionsPose.landmark[0].x,3))+','
 
-      sockmsg=bytearray(msg, 'utf-8')
-      sock.sendto(sockmsg, (UDP_IP,UDP_PORT))
-      #print(msg)
+      if numHands == 2:
+          sockmsg=bytearray(msg, 'utf-8')
+          sock.sendto(sockmsg, (UDP_IP,UDP_PORT))
+          #print(msg)
 
   # Draw the hand annotations on the image.
   image.flags.writeable = True
