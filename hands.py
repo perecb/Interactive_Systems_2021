@@ -3,6 +3,7 @@ import cv2
 import mediapipe as mp
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
+mp_pose = mp.solutions.pose
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 21900
@@ -11,9 +12,10 @@ sock = socket.socket(socket.AF_INET, #Internet
                      socket.SOCK_DGRAM) #UDP
 
 # For webcam input:
-hands = mp_hands.Hands(
-    min_detection_confidence=0.5, min_tracking_confidence=0.5,max_num_hands=2)
+hands = mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5,max_num_hands=2)
+pose = mp_pose.Pose( min_detection_confidence=0.5, min_tracking_confidence=0.5)
 cap = cv2.VideoCapture(0)
+
 while cap.isOpened():
   success, image = cap.read()
   if not success:
@@ -27,17 +29,19 @@ while cap.isOpened():
   # To improve performance, optionally mark the image as not writeable to
   # pass by reference.
   image.flags.writeable = False
-  results = hands.process(image)
+  resultsHands = hands.process(image)
+  resultsPose = pose.process(image)
 
   #Send landmarks using UDP
-  detections = results.multi_hand_landmarks
+  detectionsHands = resultsHands.multi_hand_landmarks
+  detectionsPose = resultsPose.pose_landmarks
 
-  if detections is not None:
+  if detectionsHands is not None and detectionsPose is not None:
       msg = ""
-      for detection in detections:
-          msg+=str(round(detection.landmark[8].x,3))+','+str(round(detection.landmark[8].y,3))+','#+str(round(detection.landmark[8].z,3))+','+str(detection.landmark[8].visibility)+','
-          #for landmark in detection.landmark:
-              #msg+=str(round(landmark.x,3))+','+str(round(landmark.y,3))+','+str(round(landmark.z,3))+','+str(landmark.visibility)+','
+      for detection in detectionsHands:
+          msg+=str(round(detection.landmark[8].x,3))+','+str(round(detection.landmark[8].y,3))+','
+
+      msg+=str(round(detectionsPose.landmark[0].x,3))+','+str(round(detectionsPose.landmark[0].y,3))+','
 
       sockmsg=bytearray(msg, 'utf-8')
       sock.sendto(sockmsg, (UDP_IP,UDP_PORT))
@@ -46,12 +50,16 @@ while cap.isOpened():
   # Draw the hand annotations on the image.
   image.flags.writeable = True
   image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-  if results.multi_hand_landmarks:
-    for hand_landmarks in results.multi_hand_landmarks:
-      mp_drawing.draw_landmarks(
-          image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-  cv2.imshow('MediaPipe Hands', image)
+  if resultsHands.multi_hand_landmarks:
+    for hand_landmarks in resultsHands.multi_hand_landmarks:
+      mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+  if resultsPose.pose_landmarks:
+    mp_drawing.draw_landmarks( image, resultsPose.pose_landmarks, mp_pose.POSE_CONNECTIONS)
+  
+  cv2.imshow('MediaPipe Hands & Pose', image)
   if cv2.waitKey(5) & 0xFF == 27:
     break
 hands.close()
+pose.close()
 cap.release()
