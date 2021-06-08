@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 1012397298}
     - target: {fileID: 1260598484926643, guid: 5419e980f13f9fb408ebf849c1c555d0, type: 3}
       propertyPath: nextScene
-      value: Lvl 3
+      value: Lvl 4
       objectReference: {fileID: 0}
     - target: {fileID: 5857534051109138330, guid: 5419e980f13f9fb408ebf849c1c555d0,
         type: 3}
@@ -331,6 +331,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5419e980f13f9fb408ebf849c1c555d0, type: 3}
+--- !u!1 &285678858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5858724269321124498, guid: 5419e980f13f9fb408ebf849c1c555d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 285678857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &289919033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,9 +924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd9c79acff45184f80152b7fd84ff56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 7
+  multiplier: 10
   Dedo1GO: {fileID: 1561303722}
   Dedo2GO: {fileID: 169628266}
+  PlayerGO: {fileID: 285678858}
 --- !u!4 &1104760259
 Transform:
   m_ObjectHideFlags: 0

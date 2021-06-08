@@ -723,6 +723,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5419e980f13f9fb408ebf849c1c555d0, type: 3}
+--- !u!1 &820432148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5858724269321124498, guid: 5419e980f13f9fb408ebf849c1c555d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 820432147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &874367448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,9 +843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd9c79acff45184f80152b7fd84ff56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 7
+  multiplier: 10
   Dedo1GO: {fileID: 874367449}
   Dedo2GO: {fileID: 658123972}
+  PlayerGO: {fileID: 820432148}
 --- !u!4 &896569279
 Transform:
   m_ObjectHideFlags: 0
