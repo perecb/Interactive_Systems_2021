@@ -1109,6 +1109,9 @@ MonoBehaviour:
   rotateSpeed: 3
   startPlatform: {fileID: 0}
   endPlatform: {fileID: 0}
+  nextScene: Lvl 2
+  Flecha_derecha: {fileID: 0}
+  Flecha_izquierda: {fileID: 0}
 --- !u!136 &2119419107
 CapsuleCollider:
   m_ObjectHideFlags: 0
