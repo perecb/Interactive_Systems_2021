@@ -28,6 +28,6 @@ Para instalar el mediapipe sigue estos pasos desde la terminal (cmd):
       
 Ahora se debe introducir el archivo de nuestro repositorio hands.py en el directorio que has creado y ejecutarlo con el siguiente comando:
 
-      > python hands.py
+      > python mediapipe.py
      
 Debes dejar la ventana abierta y ejecutar el programa en unity.
