@@ -1424,15 +1424,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 936151041684874981, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 572ef575d5512eb429c501bd26eb11ce,
+        type: 3}
+    - target: {fileID: 936151041684874981, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 13.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 936151041684874981, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 936151041684874981, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 936151041684874982, guid: 36842bfcbf2524eceabd2b916bd77b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.05
+      value: -0.146
       objectReference: {fileID: 0}
     - target: {fileID: 936151041684874982, guid: 36842bfcbf2524eceabd2b916bd77b7e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.62
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 936151041684874982, guid: 36842bfcbf2524eceabd2b916bd77b7e,
         type: 3}
@@ -1478,6 +1499,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936151041684874982, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2433883
+      objectReference: {fileID: 0}
+    - target: {fileID: 936151041684874982, guid: 36842bfcbf2524eceabd2b916bd77b7e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6816957
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36842bfcbf2524eceabd2b916bd77b7e, type: 3}
