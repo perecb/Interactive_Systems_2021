@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6748557368981852229}
   - component: {fileID: 4773608469249917016}
   m_Layer: 0
-  m_Name: Izquierda_Apagada
+  m_Name: Apagado_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
