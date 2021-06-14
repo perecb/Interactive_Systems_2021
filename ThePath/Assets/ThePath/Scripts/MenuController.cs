@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour
     {
         Vector3 playPos = PlayButton.transform.position;
 
-        if ( (position.x < playPos.x + 16 && position.x > playPos.x - 16) && (position.y < playPos.y + 17 && position.y > playPos.y + 13))
+        if ( (position.x < playPos.x + 12 && position.x > playPos.x - 12) && (position.y < playPos.y + 15 && position.y > playPos.y + 8))
         {
             return true;
         }
