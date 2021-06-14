@@ -16,7 +16,13 @@ EditorBuildSettings:
     guid: a20d932b37eb21147ad16c220ac6827b
   - enabled: 1
     path: Assets/ThePath/Scenes/Lvl 4.unity
-    guid: 2751aab1c17f0874f9db93148230ebf3
+    guid: 6e79855305263024b98c6b983f6cb232
+  - enabled: 1
+    path: Assets/ThePath/Scenes/Lvl 5.unity
+    guid: 6ba8e107f7367614c8d9805579871545
+  - enabled: 1
+    path: Assets/ThePath/Scenes/Lvl 6.unity
+    guid: e5884c440e091df4a96cf54ca30ce919
   - enabled: 1
     path: Assets/ThePath/Scenes/Menu.unity
     guid: 991f008788e704c409361c2c19a2a6eb
