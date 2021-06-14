@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     GameObject encendido_I;
     GameObject apagado_I;
 
-    float respawn_Time = 1;
-    float next_Respawn = 0;
+    //float respawn_Time = 1;
+    //float next_Respawn = 0;
 
 
     // Start is called before the first frame update
