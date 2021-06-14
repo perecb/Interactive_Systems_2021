@@ -50,6 +50,11 @@ public class PlayerController : MonoBehaviour
         {
             tpNextLvl();
         }
+
+        if (transform.position.y < startPlatform.transform.position.y - 50)
+        {
+            transform.position = startPlatform.transform.position;
+        }
     }
 
     private void tpStart()
